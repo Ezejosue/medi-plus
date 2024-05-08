@@ -41,6 +41,24 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 16,
   },
+
+  buttonGoogle: {
+    marginTop: 10,
+    backgroundColor: "#FFFFFF",
+    borderColor: "#DD4B39",
+    borderWidth: 1,
+    borderRadius: 5,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
+  },
+  googleIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 10,
+  },
+
   forgotPassword: {
     color: "#9BA4B5",
     marginBottom: 15,
