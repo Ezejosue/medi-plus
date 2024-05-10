@@ -6,18 +6,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#ffffff",
-    padding: 20,
-  },
-  logo: {
-    width: 100,
-    height: 100,
-    marginBottom: 20,
   },
   title: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
     color: "#394867",
+    textAlign: "left",
     width: 250,
   },
   input: {
@@ -79,6 +74,8 @@ const styles = StyleSheet.create({
     color: "#394867",
     fontSize: 15,
     textDecorationLine: "underline",
+    width: 250,
+    textAlign: "center",
   },
 });
 

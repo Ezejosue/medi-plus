@@ -5,6 +5,7 @@ import styles from "../src/css/RegisterStyle";
 import { auth, firestore } from "../helpers/firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
+import toast, { Toaster } from "react-hot-toast";
 
 const RegisterScreen = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");
@@ -16,6 +17,18 @@ const RegisterScreen = ({ navigation }) => {
   const [specialty, setSpecialty] = useState("");
 
   const handleRegister = async () => {
+    if (
+      !firstName.trim() ||
+      !lastName.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !documentType.trim() ||
+      !documentNumber.trim() ||
+      !specialty.trim()
+    ) {
+      toast.error("Por favor, completa todos los campos.");
+      return;
+    }
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -27,20 +40,30 @@ const RegisterScreen = ({ navigation }) => {
       await setDoc(userRef, {
         firstName,
         lastName,
+        email,
         documentType,
         documentNumber,
         specialty,
       });
       console.log("Usuario registrado con éxito:", user.uid);
+      toast.success("Registro exitoso. ¡Bienvenido!");
       navigation.navigate("Login");
     } catch (error) {
       console.error("Error en el registro:", error.message);
+      if (error.code === "auth/email-already-in-use") {
+        toast.error(
+          "El correo electrónico ya está en uso. Por favor, intenta con otro."
+        );
+      } else {
+        toast.error("Error en el registro. Por favor, intenta de nuevo.");
+      }
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Registro de Usuario</Text>
+      <Toaster />
+      <Text style={styles.title}>¡Regístrate!</Text>
       <TextInput
         placeholder="Nombre"
         style={styles.input}
@@ -96,6 +119,13 @@ const RegisterScreen = ({ navigation }) => {
       </Picker>
       <TouchableOpacity style={styles.button} onPress={handleRegister}>
         <Text style={styles.buttonText}>Registrar</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.register}
+        onPress={() => navigation.navigate("Login")}
+      >
+        <Text style={styles.register}>¿Ya tienes cuenta?</Text>
       </TouchableOpacity>
     </View>
   );

@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#ffffff",
-    padding: 20,
   },
   header: {
     fontSize: 24,
@@ -16,7 +15,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 250,
-    height: 50,
+    height: 200,
     backgroundColor: "#394867",
     justifyContent: "center",
     alignItems: "center",
@@ -34,7 +33,7 @@ const styles = StyleSheet.create({
   },
   menuItem: {
     width: 250,
-    height: 50,
+    height: 100,
     backgroundColor: "#394867",
     justifyContent: "center",
     alignItems: "center",

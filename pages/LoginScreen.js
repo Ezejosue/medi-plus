@@ -5,6 +5,7 @@ import * as Google from "expo-auth-session/providers/google";
 import * as WebBrowser from "expo-web-browser";
 import { auth } from "../helpers/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import toast, { Toaster } from "react-hot-toast";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -46,6 +47,10 @@ const LoginScreen = ({ onLogin, navigation }) => {
   };
 
   const handleSignIn = async () => {
+    if (!username.trim() || !password.trim()) {
+      toast.error("Por favor, ingresa tu usuario y contraseña.");
+      return;
+    }
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -59,15 +64,29 @@ const LoginScreen = ({ onLogin, navigation }) => {
         uid: user.uid,
       };
       onLogin(normalizedUser);
+      toast.success("Inicio de sesión exitoso");
       navigation.navigate("Home");
       console.log("Inicio de sesión exitoso:", user.uid);
     } catch (error) {
       console.error("Error en el inicio de sesión:", error.message);
+      if (
+        error.code === "auth/user-not-found" ||
+        error.code === "auth/wrong-password"
+      ) {
+        toast.error(
+          "Usuario o contraseña incorrectos. Por favor, verifica tus datos."
+        );
+      } else {
+        toast.error(
+          "Error en el inicio de sesión. Por favor, intenta de nuevo."
+        );
+      }
     }
   };
 
   return (
     <View style={styles.container}>
+      <Toaster />
       <Image
         source={require("../assets/adaptive-icon.png")}
         style={styles.logo}
@@ -94,13 +113,6 @@ const LoginScreen = ({ onLogin, navigation }) => {
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={styles.register}
-        onPress={() => navigation.navigate("Register")}
-      >
-        <Text style={styles.register}>Registrarse</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
         onPress={() => promptAsync()}
         style={styles.buttonGoogle}
       >
@@ -109,6 +121,13 @@ const LoginScreen = ({ onLogin, navigation }) => {
           style={styles.googleIcon}
         />
         <Text style={styles.buttonGoogleText}>Iniciar sesión con Google</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.register}
+        onPress={() => navigation.navigate("Register")}
+      >
+        <Text style={styles.register}>¿No tienes cuenta?</Text>
       </TouchableOpacity>
     </View>
   );
