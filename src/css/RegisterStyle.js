@@ -18,9 +18,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 20,
     color: "#394867",
+    width: 250,
   },
   input: {
-    width: "80%",
+    width: 250,
     height: 50,
     marginBottom: 10,
     borderWidth: 1,
@@ -29,14 +30,15 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   button: {
-    width: "80%",
+    width: 250,
     height: 50,
     backgroundColor: "#394867",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 15,
-    marginBottom: 50,
+    marginBottom: 10,
   },
+
   buttonText: {
     color: "#ffffff",
     fontSize: 16,
@@ -47,12 +49,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     borderColor: "#DD4B39",
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 15,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     padding: 10,
+    width: 250,
   },
+
+  buttonGoogleText: {
+    color: "#000",
+    fontSize: 16,
+  },
+
   googleIcon: {
     width: 24,
     height: 24,

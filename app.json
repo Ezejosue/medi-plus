@@ -1,33 +1,30 @@
-
 {
   "expo": {
-    "name": "medi-plus",
-    "slug": "medi-plus",
+    "name": "medi-plus-life",
+    "slug": "medi-plus-life",
+    "scheme": "medipluslife",
+
     "version": "1.0.0",
     "orientation": "portrait",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.mediplus"
+      "package": "com.aezeq11.expo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "c96f9101-7b29-4dd6-964c-3afa5e71c4d6"
-      }
     }
   }
 }
