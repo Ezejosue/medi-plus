@@ -27,7 +27,8 @@ const HomeScreen = ({ userInfo, onLogout, navigation }) => {
         >
           <Text style={styles.menuItemText}>Ver Expediente</Text>
         </TouchableOpacity>
-        <TouchableOpacityS
+
+        <TouchableOpacity
           style={styles.menuItem}
           onPress={() => console.log("Actualizar Datos")}
         >
