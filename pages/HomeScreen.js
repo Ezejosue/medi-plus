@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styles from "../src/css/HomeStyle";
 
-const HomeScreen = ({ userInfo, onLogout }) => {
+const HomeScreen = ({ userInfo, onLogout, navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>
@@ -17,16 +17,17 @@ const HomeScreen = ({ userInfo, onLogout }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.menuItem}
-          onPress={() => console.log("Crear Expediente")}
+          onPress={() => navigation.navigate("MedicalRecord")}
         >
           <Text style={styles.menuItemText}>Crear Expediente</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.menuItem}
-          onPress={() => console.log("Ver Expediente")}
+          onPress={() => navigation.navigate("SearchMedicalRecord")}
         >
           <Text style={styles.menuItemText}>Ver Expediente</Text>
         </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.menuItem}
           onPress={() => console.log("Actualizar Datos")}

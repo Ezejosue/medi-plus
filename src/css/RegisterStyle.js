@@ -7,6 +7,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#ffffff",
   },
+
+  searchContainer: {
+    width: 300,
+    padding: 20,
+    alignItems: "center",
+  },
+
   title: {
     fontSize: 24,
     fontWeight: "bold",
@@ -34,33 +41,19 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 
+  buttonBack: {
+    width: 250,
+    height: 50,
+    backgroundColor: "#394867",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 15,
+    marginTop: 10,
+  },
+
   buttonText: {
     color: "#ffffff",
     fontSize: 16,
-  },
-
-  buttonGoogle: {
-    marginTop: 10,
-    backgroundColor: "#FFFFFF",
-    borderColor: "#DD4B39",
-    borderWidth: 1,
-    borderRadius: 15,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 10,
-    width: 250,
-  },
-
-  buttonGoogleText: {
-    color: "#000",
-    fontSize: 16,
-  },
-
-  googleIcon: {
-    width: 24,
-    height: 24,
-    marginRight: 10,
   },
 
   forgotPassword: {
