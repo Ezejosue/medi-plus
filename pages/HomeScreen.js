@@ -23,11 +23,11 @@ const HomeScreen = ({ userInfo, onLogout, navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.menuItem}
-          onPress={() => console.log("Ver Expediente")}
+          onPress={() => navigation.navigate("SearchMedicalRecord")}
         >
           <Text style={styles.menuItemText}>Ver Expediente</Text>
         </TouchableOpacity>
-        <TouchableOpacity
+        <TouchableOpacityS
           style={styles.menuItem}
           onPress={() => console.log("Actualizar Datos")}
         >
