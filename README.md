@@ -50,6 +50,7 @@ Asegúrate de haber configurado tu proyecto Firebase y haberlo integrado dentro 
 
 - [Prototipo de Diseño en Figma](https://www.figma.com/file/6UUA3t9Z6lhAi61geZ8Tsf/ReactApp?type=design&node-id=0-1&mode=design&t=11ElOwXo5CE3W2hc-0)
 - [Tareas del Proyecto en Microsoft Planner](https://tasks.office.com/udb.edu.sv/Home/PlanViews/v1MpYA2m5Um2LmXOsklZ9GQAGeH2?Type=PlanLink&Channel=Link&CreatedTime=638468494166260000)
+- Manual Tecnico  [MEDI+.pdf](https://github.com/Ezejosue/medi-plus/files/15287936/MEDI%2B.pdf)
 
 ## Licencia 📄
 
