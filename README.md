@@ -53,5 +53,5 @@ Asegúrate de haber configurado tu proyecto Firebase y haberlo integrado dentro 
 
 ## Licencia 📄
 
-Este proyecto está licenciado bajo la [Licencia MIT](LICENSE.md).
+Este proyecto está licenciado bajo la [Licencia CCO](LICENSE.md).
 
