@@ -53,6 +53,8 @@ Asegúrate de haber configurado tu proyecto Firebase y haberlo integrado dentro 
 - Manual Tecnico  [MEDI+.pdf](https://github.com/Ezejosue/medi-plus/files/15287936/MEDI%2B.pdf)
 -[Manual de usuario MediPlus](https://github.com/Ezejosue/medi-plus/blob/main/Manual%20de%20usuario.pdf)
 
+video explicativo: https://drive.google.com/file/d/1Yq5Ow7DH4KNmL3PHC9GJSvomyF9wFpqJ/view?usp=sharing
+
 ## Licencia 📄
 
 Este proyecto está licenciado bajo la [Licencia CCO](LICENSE.md).
