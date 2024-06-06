@@ -6,9 +6,7 @@ MEDIPLUS es una aplicación móvil diseñada exclusivamente para doctores, que p
 
 - **Login y Registro Seguro**: Autentica utilizando correo electrónico/contraseña o de manera rápida a través de Google.
 - **Gestión de Expedientes de Pacientes**: Crea y visualiza expedientes de pacientes fácilmente usando el número de DUI del paciente.
-- **Funcionalidades Futuras**:
-  - Actualizar expedientes de pacientes existentes.
-  - Programar y gestionar citas.
+- **Gestión de Citas**: Programar y gestionar citas.
 
 ## Primeros Pasos 🚀
 
