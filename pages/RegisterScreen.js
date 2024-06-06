@@ -4,7 +4,14 @@ import { Picker } from "@react-native-picker/picker";
 import styles from "../src/css/RegisterStyle";
 import { auth, firestore } from "../helpers/firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  query,
+  collection,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import toast, { Toaster } from "react-hot-toast";
 
 const RegisterScreen = ({ navigation }) => {
@@ -29,7 +36,26 @@ const RegisterScreen = ({ navigation }) => {
       toast.error("Por favor, completa todos los campos.");
       return;
     }
+
+    if (password.length < 6) {
+      toast.error("La contraseña debe tener al menos 6 caracteres.");
+      return;
+    }
+
     try {
+      // Verificar si el documentNumber ya existe
+      const q = query(
+        collection(firestore, "users"),
+        where("documentNumber", "==", documentNumber)
+      );
+      const querySnapshot = await getDocs(q);
+
+      if (!querySnapshot.empty) {
+        toast.error(
+          "El número de documento ya está en uso. Por favor, intenta con otro."
+        );
+        return;
+      }
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,

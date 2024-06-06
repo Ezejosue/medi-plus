@@ -3,7 +3,14 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import styles from "../src/css/RegisterStyle";
 import { firestore } from "../helpers/firebaseConfig";
-import { doc, setDoc, collection } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  query,
+  collection,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import toast, { Toaster } from "react-hot-toast";
 
 const MedicalRecordScreen = () => {
@@ -31,6 +38,19 @@ const MedicalRecordScreen = () => {
       return;
     }
     try {
+      // Verificar si el documentNumber ya existe
+      const q = query(
+        collection(firestore, "medicalRecords"),
+        where("documentNumber", "==", documentNumber)
+      );
+      const querySnapshot = await getDocs(q);
+
+      if (!querySnapshot.empty) {
+        toast.error(
+          "El número de documento ya está en uso. Por favor, intenta con otro."
+        );
+        return;
+      }
       const newRecordRef = doc(collection(firestore, "medicalRecords"));
       await setDoc(newRecordRef, {
         firstName,
