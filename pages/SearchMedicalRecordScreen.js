@@ -80,6 +80,9 @@ const SearchMedicalRecordScreen = ({ navigation }) => {
           <Text style={{ fontSize: 16, marginBottom: 5 }}>
             Teléfono: {record.phoneNumber}
           </Text>
+          <Text style={{ fontSize: 16, marginBottom: 5 }}>
+            Descripción: {record.description}
+          </Text>
         </Card>
       )}
       <TouchableOpacity

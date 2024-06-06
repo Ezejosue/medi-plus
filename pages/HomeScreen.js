@@ -6,14 +6,31 @@ const HomeScreen = ({ userInfo, onLogout, navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>
-        Bienvenido, {userInfo.name || "Usuario"}
+        Bienvenido, {userInfo.email || "Usuario"}
       </Text>
       <View style={styles.menuContainer}>
         <TouchableOpacity
           style={styles.menuItem}
-          onPress={() => console.log("Agendar Cita")}
+          onPress={() => {
+            console.log("Document Number:", userInfo.documentNumber);
+            navigation.navigate("ScheduleAppointment", {
+              doctorDocumentNumber: userInfo.documentNumber,
+              doctorEmail: userInfo.email,
+            });
+          }}
         >
           <Text style={styles.menuItemText}>Agendar Cita</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.menuItem}
+          onPress={() =>
+            navigation.navigate("ViewAppointments", {
+              doctorDocumentNumber: userInfo.documentNumber,
+              doctorEmail: userInfo.email,
+            })
+          }
+        >
+          <Text style={styles.menuItemText}>Mis Citas</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.menuItem}
@@ -30,7 +47,7 @@ const HomeScreen = ({ userInfo, onLogout, navigation }) => {
 
         <TouchableOpacity
           style={styles.menuItem}
-          onPress={() => console.log("Actualizar Datos")}
+          onPress={() => navigation.navigate("UpdateMedicalRecord")}
         >
           <Text style={styles.menuItemText}>Actualizar Datos</Text>
         </TouchableOpacity>

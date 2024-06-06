@@ -3,8 +3,9 @@ import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import styles from "../src/css/LoginStyle";
 import * as Google from "expo-auth-session/providers/google";
 import * as WebBrowser from "expo-web-browser";
-import { auth } from "../helpers/firebaseConfig";
+import { auth, firestore } from "../helpers/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 import toast, { Toaster } from "react-hot-toast";
 
 WebBrowser.maybeCompleteAuthSession();
@@ -58,15 +59,29 @@ const LoginScreen = ({ onLogin, navigation }) => {
         password
       );
       const user = userCredential.user;
-      const normalizedUser = {
-        name: user.email,
-        email: user.email,
-        uid: user.uid,
-      };
-      onLogin(normalizedUser);
-      toast.success("Inicio de sesión exitoso");
-      navigation.navigate("Home");
-      console.log("Inicio de sesión exitoso:", user.uid);
+
+      // Recuperar documentNumber del usuario desde Firestore
+      const userDocRef = doc(firestore, "users", user.uid);
+      const userDoc = await getDoc(userDocRef);
+
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        const normalizedUser = {
+          name: userData.name,
+          email: user.email,
+          uid: user.uid,
+          documentNumber: userData.documentNumber,
+        };
+        onLogin(normalizedUser);
+        toast.success("Inicio de sesión exitoso");
+        navigation.navigate("Home");
+        console.log("Inicio de sesión exitoso:", user.uid);
+      } else {
+        console.error("No se encontró el documento del usuario en Firestore.");
+        toast.error(
+          "Error en el inicio de sesión. Por favor, intenta de nuevo."
+        );
+      }
     } catch (error) {
       console.error("Error en el inicio de sesión:", error.message);
       if (

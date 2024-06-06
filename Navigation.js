@@ -7,6 +7,9 @@ import HomeScreen from "./pages/HomeScreen";
 import RegisterScreen from "./pages/RegisterScreen";
 import MedicalRecordScreen from "./pages/MedicalRecordScreen";
 import SearchMedicalRecordScreen from "./pages/SearchMedicalRecordScreen";
+import UpdateMedicalRecordScreen from "./pages/UpdateMedicalRecordScreen";
+import ScheduleAppointmentScreen from "./pages/ScheduleAppointmentScreen";
+import ViewAppointmentsScreen from "./pages/ViewAppointmentsScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -67,6 +70,28 @@ const Navigation = () => {
               name="SearchMedicalRecord"
               component={SearchMedicalRecordScreen}
             />
+            <Stack.Screen
+              name="UpdateMedicalRecord"
+              component={UpdateMedicalRecordScreen}
+            />
+            <Stack.Screen name="ScheduleAppointment">
+              {(props) => (
+                <ScheduleAppointmentScreen
+                  {...props}
+                  doctorDocumentNumber={userInfo.documentNumber}
+                  doctorEmail={userInfo.email}
+                />
+              )}
+            </Stack.Screen>
+            <Stack.Screen name="ViewAppointments">
+              {(props) => (
+                <ViewAppointmentsScreen
+                  {...props}
+                  doctorDocumentNumber={userInfo.documentNumber}
+                  doctorEmail={userInfo.email}
+                />
+              )}
+            </Stack.Screen>
           </>
         ) : (
           <>
@@ -80,6 +105,5 @@ const Navigation = () => {
     </NavigationContainer>
   );
 };
-//comentario de prueba
 
 export default Navigation;

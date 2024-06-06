@@ -14,6 +14,7 @@ const MedicalRecordScreen = () => {
   const [documentNumber, setDocumentNumber] = useState("");
   const [address, setAddress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleCreateRecord = async () => {
     if (
@@ -23,7 +24,8 @@ const MedicalRecordScreen = () => {
       !documentType.trim() ||
       !documentNumber.trim() ||
       !address.trim() ||
-      !phoneNumber.trim()
+      !phoneNumber.trim() ||
+      !description.trim()
     ) {
       toast.error("Por favor, completa todos los campos.");
       return;
@@ -38,6 +40,7 @@ const MedicalRecordScreen = () => {
         documentNumber,
         address,
         phoneNumber,
+        description,
       });
       console.log("Expediente médico creado con éxito:", newRecordRef.id);
       toast.success("Expediente médico creado exitosamente.");
@@ -94,6 +97,14 @@ const MedicalRecordScreen = () => {
         style={styles.input}
         value={phoneNumber}
         onChangeText={setPhoneNumber}
+      />
+      <TextInput
+        placeholder="Descripción"
+        style={styles.input}
+        value={description}
+        onChangeText={setDescription}
+        multiline
+        numberOfLines={4}
       />
       <TouchableOpacity style={styles.button} onPress={handleCreateRecord}>
         <Text style={styles.buttonText}>Crear Expediente</Text>

@@ -56,40 +56,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
-  forgotPassword: {
+  noAppointmentsText: {
+    fontSize: 18,
     color: "#9BA4B5",
-    marginBottom: 15,
-    textAlign: "right",
-    width: "80%",
-    textDecorationLine: "underline",
-  },
-  register: {
-    color: "#394867",
-    fontSize: 15,
-    textDecorationLine: "underline",
-    width: 250,
-    textAlign: "center",
-  },
-
-  datePicker: {
-    width: 250,
-    marginBottom: 10,
-  },
-
-  datePickerButton: {
-    width: 250,
-    height: 50,
-    marginBottom: 10,
-    justifyContent: "center",
-    alignItems: "center",
-    borderWidth: 1,
-    borderColor: "#cccccc",
-    borderRadius: 15,
-  },
-
-  datePickerText: {
-    fontSize: 16,
-    color: "#394867",
   },
 });
 
