@@ -49,7 +49,6 @@ Asegúrate de haber configurado tu proyecto Firebase y haberlo integrado dentro 
 - [Prototipo de Diseño en Figma](https://www.figma.com/file/6UUA3t9Z6lhAi61geZ8Tsf/ReactApp?type=design&node-id=0-1&mode=design&t=11ElOwXo5CE3W2hc-0)
 - [Tareas del Proyecto en Trello](https://trello.com/invite/b/1ffmix7g/ATTIcdd30cff430c9af908cdb13e7e21a28bD5FAB851/proyectomedi-plus)
 - Manual Tecnico  [MEDI+.pdf](https://github.com/user-attachments/files/15746199/MEDI%2B.pdf)
-
 -[Manual de usuario MediPlus](https://github.com/Ezejosue/medi-plus/blob/main/Manual%20de%20usuario.pdf)
 
 video explicativo: https://drive.google.com/file/d/1Yq5Ow7DH4KNmL3PHC9GJSvomyF9wFpqJ/view?usp=sharing
