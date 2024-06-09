@@ -52,6 +52,7 @@ Asegúrate de haber configurado tu proyecto Firebase y haberlo integrado dentro 
 -[Manual de usuario MediPlus](https://github.com/Ezejosue/medi-plus/blob/main/Manual%20de%20usuario.pdf)
 
 video explicativo: https://drive.google.com/file/d/1Yq5Ow7DH4KNmL3PHC9GJSvomyF9wFpqJ/view?usp=sharing
+Fase 3: https://drive.google.com/file/d/1nFAPMdW7_PxRPSObSnUonkOIDzfTRrwT/view?usp=sharing
 
 ## Licencia 📄
 
